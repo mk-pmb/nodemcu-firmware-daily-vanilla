@@ -1,0 +1,32 @@
+%YAML 1.1
+# ^-- ATTN: [2019-12-31] If you use a later version, Github will fail
+#     with a bogus error message "You have an error in your yaml syntax".
+# -*- coding: UTF-8, tab-width: 4 -*-
+---
+
+on:
+    push:
+        branches:
+            -   master
+
+    schedule:
+        -   cron:  '6 11 * * *'
+            # because 82h:66m = 3d 11h 6m
+
+jobs:
+    build_nodemcu_job:
+        runs-on: ubuntu-latest
+        name: 'Make an all-defaults firmware image'
+        steps:
+            -   name: 'Check out the repo files'
+                # This example repo doesn't have any files that would be used,
+                # so this step is useless for the build.
+                # It's only here to show how you can do it in your fork.
+                uses: 'actions/checkout@v2'
+
+            -   name: 'Actually build my firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@experimental'
+                # You'll probably want to use the master branch or a version
+                # branch of the action, instead of experimental.
+
+...

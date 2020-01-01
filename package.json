@@ -1,0 +1,26 @@
+{ "name": "nodemcu-firmware-daily-vanilla",
+  "version": "0.0.1",
+  "description": "Minimum demo of `nodemcu-firmware-build-as-github-action`, using all-defaults config.",
+  "keywords": [
+    "github action",
+    "nodemcu firmware",
+    "nodemcu-firmware-build-as-github-action"
+  ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/nodemcu-firmware-daily-vanilla/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/nodemcu-firmware-daily-vanilla.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/nodemcu-firmware-daily-vanilla/issues"
+  },
+  "contributors": [],
+
+  "private": false, "license": "ISC",
+
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
