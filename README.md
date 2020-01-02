@@ -17,6 +17,18 @@ The top-level symlink `build_firmware.yaml` is just for my convenience.
 
 
 
+
+Legacy build config
+-------------------
+
+I consider the `user_*.h` build config header files "legacy" because
+I'm working on a better way to configure it.
+Put them in `app.include/`, just without the `user_` prefix.
+
+
+
+
+
 &nbsp;
 
   [baga]: https://github.com/mk-pmb/nodemcu-firmware-build-as-github-action
