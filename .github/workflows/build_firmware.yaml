@@ -25,8 +25,14 @@ jobs:
                 uses: 'actions/checkout@v2'
 
             -   name: 'Actually build my firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@experimental'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@master'
                 # You'll probably want to use the master branch or a version
                 # branch of the action, instead of experimental.
+
+            -   name: 'Upload the firmware files as artifact'
+                uses: actions/upload-artifact@v1
+                with:
+                    name: nodemcu_firmware
+                    path: output/
 
 ...
