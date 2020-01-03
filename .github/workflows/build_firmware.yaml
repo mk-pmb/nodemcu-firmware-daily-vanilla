@@ -14,25 +14,43 @@ on:
             # because 82h:66m = 3d 11h 6m
 
 jobs:
-    build_nodemcu_job:
+    job_build_nodemcu_for_esp8266:
         runs-on: ubuntu-latest
-        name: 'Make an all-defaults firmware image'
+        name: '[ESP8266] Make an all-defaults firmware image'
         steps:
-            -   name: 'Check out the repo files'
+            -   name: '[ESP8266] Check out the repo files'
                 # This example repo doesn't have any files that would be used,
                 # so this step is useless for the build.
                 # It's only here to show how you can do it in your fork.
                 uses: 'actions/checkout@v2'
 
-            -   name: 'Actually build my firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@master'
-                # You'll probably want to use the master branch or a version
-                # branch of the action, instead of experimental.
+            -   name: '[ESP8266] Actually build the firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v1'
+                with:
+                    firmware_branch: 'dev'
 
-            -   name: 'Upload the firmware files as artifact'
+            -   name: '[ESP8266] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
                 with:
-                    name: nodemcu_firmware
+                    name: esp8266_nodemcu_firmware
+                    path: output/
+
+    job_build_nodemcu_for_esp32:
+        runs-on: ubuntu-latest
+        name: '[ESP32] Make an all-defaults firmware image'
+        steps:
+            -   name: '[ESP32] Check out the repo files'
+                uses: 'actions/checkout@v2'
+
+            -   name: '[ESP32] Actually build the firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v1'
+                with:
+                    firmware_branch: 'dev-esp32'
+
+            -   name: '[ESP32] Upload the firmware files as artifact'
+                uses: actions/upload-artifact@v1
+                with:
+                    name: esp32_nodemcu_firmware
                     path: output/
 
 ...
