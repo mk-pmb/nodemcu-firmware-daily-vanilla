@@ -28,6 +28,8 @@ jobs:
                 uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v1'
                 with:
                     firmware_branch: 'dev'
+                    firmware_git_reset: 'bf8f14b6'
+                    # https://github.com/nodemcu/nodemcu-firmware/issues/2993
 
             -   name: '[ESP8266] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
