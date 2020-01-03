@@ -18,12 +18,18 @@ The top-level symlink `build_firmware.yaml` is just for my convenience.
 
 
 
-Legacy build config
--------------------
+ESP8266 legacy build config
+---------------------------
 
 I consider the `user_*.h` build config header files "legacy" because
 I'm working on a better way to configure it.
-Put them in `app.include/`, just without the `user_` prefix.
+Put them in `esp8266.app.include/`, just without the `user_` prefix.
+
+
+ESP32 SDK config
+----------------
+
+see [esp32.sdkcfg/](esp32.sdkcfg/)
 
 
 
