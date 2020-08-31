@@ -44,14 +44,5 @@ see [esp32.sdkcfg/](esp32.sdkcfg/)
 License
 -------
 <!--#echo json="package.json" key=".license" -->
-ISC
+MIT
 <!--/#echo -->
-
-Disclaimers and third party content information:
-
-* I'm not sure whether I can effectively grant (sub)licenses for any use
-  of the files that this repo's GitHub Action runs create.
-  My layman's interpretation (I'm not a lawyer) is that you should clone
-  this repo, run the Github Action yourself, thereby creating a version that
-  you yourself made (because the GHA was a tool under your control)
-  and this way hopefully you can use the license of the firmware source.

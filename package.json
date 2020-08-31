@@ -7,7 +7,7 @@
     "nodemcu-firmware-build-as-github-action"
   ],
 
-  "author": "M.K. (https://github.com/mk-pmb)",
+  "author": "Marcel Krause <mk+copyleft@pimpmybyte.de>",
   "homepage": "https://github.com/mk-pmb/nodemcu-firmware-daily-vanilla/#readme",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   },
   "contributors": [],
 
-  "private": false, "license": "ISC",
+  "private": false, "license": "MIT",
 
 
 

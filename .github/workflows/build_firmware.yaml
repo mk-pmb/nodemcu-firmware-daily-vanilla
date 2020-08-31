@@ -25,9 +25,10 @@ jobs:
                 uses: 'actions/checkout@v2'
 
             -   name: '[ESP8266 float] Actually build the firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@experimental'
                 with:
                     firmware_branch: 'dev'
+                    firmware_verify_license: 'results/nodemcu_license.txt'
 
             -   name: '[ESP8266 float] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
@@ -46,12 +47,13 @@ jobs:
                 uses: 'actions/checkout@v2'
 
             -   name: '[ESP8266 int] Actually build the firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@experimental'
                 with:
                     firmware_branch: 'dev'
                     firmware_hotfix_cmd: >
                         sed -re 's~^/{2}(#define LUA_NUMBER_INTEGRAL)~\1~'
                         -i app/include/user_config.h
+                    firmware_verify_license: 'results/nodemcu_license.txt'
 
             -   name: '[ESP8266 int] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
@@ -67,9 +69,10 @@ jobs:
                 uses: 'actions/checkout@v2'
 
             -   name: '[ESP32 float] Actually build the firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@experimental'
                 with:
                     firmware_branch: 'dev-esp32'
+                    firmware_verify_license: 'results/nodemcu_license.txt'
 
             -   name: '[ESP32 float] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
