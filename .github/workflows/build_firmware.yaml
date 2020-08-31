@@ -14,43 +14,67 @@ on:
             # because 82h:66m = 3d 11h 6m
 
 jobs:
-    job_build_nodemcu_for_esp8266:
+    job_build_nodemcu_for_esp8266_float:
         runs-on: ubuntu-latest
-        name: '[ESP8266] Make an all-defaults firmware image'
+        name: '[ESP8266 float] Make an all-defaults firmware image'
         steps:
-            -   name: '[ESP8266] Check out the repo files'
+            -   name: '[ESP8266 float] Check out the repo files'
                 # This example repo doesn't have any files that would be used,
                 # so this step is useless for the build.
                 # It's only here to show how you can do it in your fork.
                 uses: 'actions/checkout@v2'
 
-            -   name: '[ESP8266] Actually build the firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v1'
+            -   name: '[ESP8266 float] Actually build the firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
                 with:
                     firmware_branch: 'dev'
 
-            -   name: '[ESP8266] Upload the firmware files as artifact'
+            -   name: '[ESP8266 float] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
                 with:
-                    name: esp8266_nodemcu_firmware
-                    path: output/
+                    name: esp8266_nodemcu_firmware_float
+                    path: results/
 
-    job_build_nodemcu_for_esp32:
+    job_build_nodemcu_for_esp8266_int:
         runs-on: ubuntu-latest
-        name: '[ESP32] Make an all-defaults firmware image'
+        name: '[ESP8266 int] Make an all-defaults firmware image'
         steps:
-            -   name: '[ESP32] Check out the repo files'
+            -   name: '[ESP8266 int] Check out the repo files'
+                # This example repo doesn't have any files that would be used,
+                # so this step is useless for the build.
+                # It's only here to show how you can do it in your fork.
                 uses: 'actions/checkout@v2'
 
-            -   name: '[ESP32] Actually build the firmware'
-                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v1'
+            -   name: '[ESP8266 int] Actually build the firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
+                with:
+                    firmware_branch: 'dev'
+                    firmware_hotfix_cmd: >
+                        sed -re 's~^/{2}(#define LUA_NUMBER_INTEGRAL)~\1~'
+                        -i app/include/user_config.h
+
+            -   name: '[ESP8266 int] Upload the firmware files as artifact'
+                uses: actions/upload-artifact@v1
+                with:
+                    name: esp8266_nodemcu_firmware_int
+                    path: results/
+
+    job_build_nodemcu_for_esp32_float:
+        runs-on: ubuntu-latest
+        name: '[ESP32 float] Make an all-defaults firmware image'
+        steps:
+            -   name: '[ESP32 float] Check out the repo files'
+                uses: 'actions/checkout@v2'
+
+            -   name: '[ESP32 float] Actually build the firmware'
+                uses: 'mk-pmb/nodemcu-firmware-build-as-github-action@v2'
                 with:
                     firmware_branch: 'dev-esp32'
 
-            -   name: '[ESP32] Upload the firmware files as artifact'
+            -   name: '[ESP32 float] Upload the firmware files as artifact'
                 uses: actions/upload-artifact@v1
                 with:
-                    name: esp32_nodemcu_firmware
-                    path: output/
+                    name: esp32_nodemcu_firmware_float
+                    path: results/
 
 ...
