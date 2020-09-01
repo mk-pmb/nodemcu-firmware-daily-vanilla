@@ -1,6 +1,6 @@
 { "name": "nodemcu-firmware-daily-vanilla",
   "version": "0.0.1",
-  "description": "Minimum demo of `nodemcu-firmware-build-as-github-action`, using all-defaults config.",
+  "description": "Minimum demo of `nodemcu-firmware-build-as-github-action` (BAGA), using all-defaults config.",
   "keywords": [
     "github action",
     "nodemcu firmware",

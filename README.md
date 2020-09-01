@@ -5,9 +5,11 @@ nodemcu-firmware-daily-vanilla
 <!--/#echo -->
 
 <!--#echo json="package.json" key="description" -->
-Minimum demo of `nodemcu-firmware-build-as-github-action`, using all-defaults
-config.
+Minimum demo of `nodemcu-firmware-build-as-github-action` (BAGA), using
+all-defaults config.
 <!--/#echo -->
+
+See also: [the BAGA repo][baga]
 
 Using a separate repo because the Github Actions cron trigger
 seems to only be able to build the master branch.
